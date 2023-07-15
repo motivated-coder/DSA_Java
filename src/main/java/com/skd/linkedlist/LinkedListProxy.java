@@ -1,5 +1,7 @@
 package com.skd.linkedlist;
 
+import org.w3c.dom.Node;
+
 public class LinkedListProxy {
 
     private Node head;
@@ -82,6 +84,18 @@ public class LinkedListProxy {
             if(length == 0){
                 head = null;
                 tail = null;
+            }
+            return temp;
+        }
+    }
+
+    public Node get( int index){
+        if(index < 0 || index > length) return null;
+        else{
+            Node temp = head;
+            for(int i = 0; i< index ;i++){
+                temp = temp.next;
+
             }
             return temp;
         }
