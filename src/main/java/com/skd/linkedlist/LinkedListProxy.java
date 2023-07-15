@@ -13,6 +13,25 @@ public class LinkedListProxy {
         length = 1;
     }
 
+    public void append(int value){
+    Node newNode = new Node(value);
+    if(length == 0){
+        head = newNode;
+        tail = newNode;
+        length = 1;
+    }
+    else {
+      /*  Node temp = head;
+        for(int i = 0 ; i < length; i++){
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        tail = newNode;*/
+        tail.next = newNode;
+        tail = newNode;
+        length++;
+    }
+    }
 
      class Node{
         int value;
