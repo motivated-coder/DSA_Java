@@ -101,6 +101,52 @@ public class LinkedListProxy {
         }
     }
 
+    public boolean set(int index, int value){
+
+        Node node = get(index);
+        if(null == node) return  false;
+        else{
+            node.value = value;
+            return true;
+        }
+    }
+
+    public boolean insert(int index, int value){
+
+        if(index < 0 || index > length) return  false;
+        if(index == 0){
+            prepend(value);
+            return true;
+        }
+        if (index == length){
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
+
+    public Node remove(int index){
+
+        if(index < 0 || index >= length) return null;
+        if(index == 0){
+            return removeFirst();
+        }
+        if (index == length - 1){
+            return removeLast();
+        }
+        Node node = get(index - 1);
+        Node temp = node.next;
+        node.next = temp.next;
+        temp.next = null;
+        length--;
+        return temp;
+    }
+
     public Node getHead() {
         return head;
     }
@@ -143,6 +189,10 @@ public class LinkedListProxy {
 
         Node(int value){
             this.value=value;
+        }
+
+        public int getValue(){
+            return this.value;
         }
     }
 }

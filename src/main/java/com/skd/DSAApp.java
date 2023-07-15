@@ -12,11 +12,9 @@ public class DSAApp {
         linkedListProxy.removeLast();
         System.out.println("------");
         linkedListProxy.printList();
-        linkedListProxy.removeLast();
         System.out.println("------");
         linkedListProxy.printList();
-        linkedListProxy.removeFirst();
-        System.out.println("------");
+        System.out.println("setting index 2 element as 12"+linkedListProxy.set(2,12));
         linkedListProxy.printList();
     }
 }
