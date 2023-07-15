@@ -72,6 +72,21 @@ public class LinkedListProxy {
         }
     }
 
+    public Node removeFirst(){
+        if(length == 0) return null;
+        else{
+            Node temp = head;
+            head = head.next;
+            temp.next=null;
+            length--;
+            if(length == 0){
+                head = null;
+                tail = null;
+            }
+            return temp;
+        }
+    }
+
     public Node getHead() {
         return head;
     }

@@ -15,5 +15,8 @@ public class DSAApp {
         linkedListProxy.removeLast();
         System.out.println("------");
         linkedListProxy.printList();
+        linkedListProxy.removeFirst();
+        System.out.println("------");
+        linkedListProxy.printList();
     }
 }
