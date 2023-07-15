@@ -21,16 +21,55 @@ public class LinkedListProxy {
         length = 1;
     }
     else {
-      /*  Node temp = head;
-        for(int i = 0 ; i < length; i++){
-            temp = temp.next;
-        }
-        temp.next = newNode;
-        tail = newNode;*/
         tail.next = newNode;
         tail = newNode;
         length++;
     }
+    }
+
+    /*public void removeLast(){
+        if(length == 0) return;
+        else{
+            Node temp = head;
+            for (int i = 1; i < length -1; i++) {
+                temp = temp.next;
+            }
+            tail = temp;
+            temp.next=null;
+            length--;
+        }
+    }*/
+
+    public Node removeLast() {
+        if (length == 0) return null;
+        Node temp = head;
+        Node pre = head;
+        while(temp.next != null) {
+            pre = temp;
+            temp = temp.next;
+        }
+        tail = pre;
+        tail.next = null;
+        length--;
+        if (length == 0) {
+            head = null;
+            tail = null;
+        }
+        return temp;
+    }
+
+    public void prepend(int value){
+        Node newNode = new Node(value);
+        if(length == 0){
+            head = newNode;
+            tail = newNode;
+            length++;
+        }
+        else{
+            newNode.next=head;
+            head = newNode;
+            length++;
+        }
     }
 
     public Node getHead() {
