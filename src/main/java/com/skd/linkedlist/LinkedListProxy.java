@@ -147,6 +147,21 @@ public class LinkedListProxy {
         return temp;
     }
 
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+
+        Node before = null;
+        Node after = null;
+        for(int i=0;i<length;i++){
+            after = temp.next;
+            temp.next=before;
+            before = temp;
+            temp = after;
+        }
+    }
+
     public Node getHead() {
         return head;
     }
