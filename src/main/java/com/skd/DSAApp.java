@@ -15,6 +15,8 @@ public class DSAApp {
         linkedListProxy.reverseBetween(2,5);
 
         linkedListProxy.printList();
+        linkedListProxy.partitionList(8);
+        linkedListProxy.printList();
         linkedListProxy.removeLast();
         System.out.println("------");
         linkedListProxy.printList();

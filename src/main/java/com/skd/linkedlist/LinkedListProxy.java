@@ -249,6 +249,45 @@ public class LinkedListProxy {
         head = dummy.next;
     }
 
+    public void partitionList(int x) {
+        if (head == null) return;
+
+        Node dummy1 = new Node(0);
+        Node dummy2 = new Node(0);
+
+        // Initialize pointers for the new lists
+        Node prev1 = dummy1;
+        Node prev2 = dummy2;
+
+        // Start iterating from the head
+        Node current = head;
+
+        // Iterate through the linked list
+        while (current != null) {
+            // Add nodes to the new lists
+            // based on their value
+            if (current.value < x) {
+                prev1.next = current;
+                prev1 = current;
+            } else {
+                prev2.next = current;
+                prev2 = current;
+            }
+
+            // Move to the next node
+            current = current.next;
+        }
+
+        // Mark the end of the second list
+        prev2.next = null;
+
+        // Connect the two new lists
+        prev1.next = dummy2.next;
+
+        // Update the head of the list
+        head = dummy1.next;
+    }
+
     public Node getHead() {
         return head;
     }
