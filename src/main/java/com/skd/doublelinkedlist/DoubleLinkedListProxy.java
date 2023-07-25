@@ -38,4 +38,21 @@ public class DoubleLinkedListProxy {
         }
         length++;
     }
+
+    public Node removeLast(){
+        if(length == 0) return null;
+        else if (length == 1) {
+            Node temp = head;
+            head = null;
+            tail = null;
+            length --;
+            return temp;
+        }
+        Node temp = tail;
+        tail = tail.prev;
+        tail.next = null;
+        temp.prev = null;
+        length--;
+        return temp;
+    }
 }
