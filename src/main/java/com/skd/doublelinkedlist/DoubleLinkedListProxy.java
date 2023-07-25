@@ -69,4 +69,21 @@ public class DoubleLinkedListProxy {
         }
         length++;
     }
+
+    public Node removeFirst(){
+        Node temp = head;
+        if(length == 0) return null;
+        else if (length == 1) {
+            head = null;
+            tail = null;
+            length--;
+            return temp;
+        }
+
+        head=head.next;
+        temp.next = null;
+        head.prev=null;
+        length--;
+        return temp;
+    }
 }
