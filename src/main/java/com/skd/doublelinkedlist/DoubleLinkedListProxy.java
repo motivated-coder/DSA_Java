@@ -86,4 +86,27 @@ public class DoubleLinkedListProxy {
         length--;
         return temp;
     }
+
+    public Node get(int i){
+        if(i < 0 || i >= length) return null;
+        else if ((i+1) == 1) {
+            return head;
+        } else if (length == (i+1)) {
+            return tail;
+        } else if ((i+1) <= (length/2)) {
+            i++;
+            Node temp = head;
+            for(int j=0;j<i;j++){
+                temp = temp.next;
+            }
+            return temp;
+        }
+        else {
+            Node temp = tail;
+            for(int j=length;j>i+1;j--){
+                temp = temp.prev;
+            }
+            return temp;
+        }
+    }
 }
