@@ -109,4 +109,67 @@ public class DoubleLinkedListProxy {
             return temp;
         }
     }
+
+    public boolean insert(int index, int value){
+        Node newNode = new Node(value);
+        if(index < 0) return false;
+        else if(index >= length) return false;
+        else if (index == 0) {
+            prepend(value);
+            return true;
+        } else if (index == (length - 1)) {
+            append(value);
+            return true;
+        }
+        else{
+            Node node = get(index);
+            node.prev.next = newNode;
+            newNode.prev = node.prev;
+            newNode.next = node;
+            node.prev = newNode;
+            length++;
+            return true;
+        }
+    }
+
+    public boolean set(int index, int value){
+        Node node = get(index);
+        if(node == null){
+            return false;
+        }
+        else{
+            node.value = value;
+            return true;
+        }
+    }
+
+    public Node remove(int index) {
+        if (index < 0 || index > length - 1) return null;
+        else if (index == 0) {
+            Node temp = head;
+            head = temp.next;
+            head.prev = null;
+            temp.next = null;
+            length--;
+            return temp;
+        } else if (index == length-1) {
+            Node temp = tail;
+            tail = temp.prev;
+            tail.next = null;
+            temp.prev = null;
+            length--;
+            return temp;
+        } else {
+            Node node = get(index);
+            Node temp = node;
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
+            node.prev = null;
+            node.next = null;
+            length--;
+            return node;
+        }
+
+    }
+
 }
